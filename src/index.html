@@ -1,38 +1,36 @@
 <HTML>
-<TITLE>ZX81 Software List</TITLE>
-<BODY>
-<H1>Some ZX81 Software</H1>
-Software from an earlier version of me
-<UL>
-<LI><A HREF="zx81.html?id=4">Alien Attack</A></LI>
-<LI><A HREF="zx81.html?id=3">Connect Four</A></LI>
-<LI><A HREF="zx81.html?id=5">Kamikaze</A></LI>
-<LI><A HREF="zx81.html?id=7">Night Rider</A></LI>
-<LI><A HREF="zx81.html?id=6">Pac Person</A></LI>
-<LI><A HREF="zx81.html?id=8">Sewerage Inspectors</A></LI>
-<LI><A HREF="zx81.html?id=9">Smash</A></LI>
-</UL>
+<TITLE>ZX81 Emulator</TITLE>
 
-<BR/>
-Psion Software
-<UL>
-<LI><A HREF="zx81.html?id=1">Chess</A></LI>
-<LI><A HREF="zx81.html?id=2">VU-CALC</A></LI>
-</UL>
+<BODY style="background-color: black; display: flex; justify-content: center; align-items: center;">
+  <script src="./zx81_emu.js"></script>
+  <script>
+    var emulatorUI;
+    window.onload = function () {
+      emulatorUI = new ZX81EmulatorUI('emulator_canvas', 'emulator_status')
+    }
+    window.onunload = function () {
+      emulatorUI.stop();
+    }
+  </script>
+  <style>
+    @media only screen and (min-width: 1000px) {
+      #emulator_canvas {
+        width: 960px !important;
+      }
+    }
 
+    #emulator_canvas {
+      width: 100vw;
+    }
+  </style>
 
-<BR/>
-Macronics
-<UL>
-<LI><A HREF="zx81.html?id=12">City Patrol</A></LI>
-</UL>
+  <div class="emulator_wrapper">
+    <canvas id="emulator_canvas" style="image-rendering: pixelated;">
+  </div>
 
-<BR/>
-Software Farm
-<UL>
-<LI><A HREF="zx81.html?id=10">Forty Niner</A></LI>
-<LI><A HREF="zx81.html?id=11">Rocket Man</A></LI>
-</UL>
-
+  <SECTION class="emulator_fps" style="display: none;">
+    <span id="emulator_status">&nbsp;</span>
+  </SECTION>
 </BODY>
+
 </HTML>
